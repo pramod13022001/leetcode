@@ -1,0 +1,19 @@
+class Solution(object):
+    def sumOfUnique(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: int
+        """
+        num_count = {}  # Dictionary to store the frequency of each element
+
+        # Count the frequency of each element
+        for num in nums:
+            num_count[num] = num_count.get(num, 0) + 1
+
+        # Sum up the unique elements
+        unique_sum = 0
+        for num, count in num_count.items():
+            if count == 1:
+                unique_sum += num
+
+        return unique_sum
