@@ -1,0 +1,18 @@
+class Solution(object):
+    def countMatches(self, items, ruleKey, ruleValue):
+        """
+        :type items: List[List[str]]
+        :type ruleKey: str
+        :type ruleValue: str
+        :rtype: int
+        """
+        # Define indices based on ruleKey
+        indices = {"type": 0, "color": 1, "name": 2}
+        
+        # Find the index corresponding to ruleKey
+        index = indices[ruleKey]
+        
+        # Count items that match the rule
+        count = sum(1 for item in items if item[index] == ruleValue)
+        
+        return count
