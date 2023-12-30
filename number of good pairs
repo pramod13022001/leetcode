@@ -1,0 +1,19 @@
+class Solution(object):
+    def numIdenticalPairs(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: int
+        """
+        # Dictionary to store the count of occurrences of each number
+        num_count = {}
+        
+        # Count occurrences of each number
+        for num in nums:
+            num_count[num] = num_count.get(num, 0) + 1
+        
+        # Calculate the total number of good pairs
+        total_pairs = 0
+        for count in num_count.values():
+            total_pairs += count * (count - 1) // 2
+        
+        return total_pairs
