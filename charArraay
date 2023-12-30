@@ -1,0 +1,11 @@
+class Solution(object):
+    def canMakeEqual(self, words):
+        """
+        :type words: List[str]
+        :rtype: bool
+        """
+        # Check if the set of characters in each word is the same
+        sets = [set(word) for word in words]
+        
+        # Compare all sets to the first set
+        return all(s == sets[0] for s in sets)
